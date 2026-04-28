@@ -12,9 +12,10 @@ export default function AppleScroll() {
     });
 
     const text1Y = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
-    const text2Opacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1]);
+    const text2Opacity = useTransform(scrollYProgress, [0.3, 0.5, 0.6], [0, 1, 0]);
     const text2Y = useTransform(scrollYProgress, [0.3, 0.6], [100, 0]);
-    const text3Opacity = useTransform(scrollYProgress, [0.6, 1], [0, 1]);
+    const text3Opacity = useTransform(scrollYProgress, [0.65, 0.8], [0, 1]);
+    const text3Y = useTransform(scrollYProgress, [0.6, 0.8], [40, 0]);
 
     return (
         <section ref={ref} className="h-[300vh] bg-black text-white">
@@ -39,7 +40,7 @@ export default function AppleScroll() {
 
                 {/* Text 3 */}
                 <motion.h1
-                    style={{ opacity: text3Opacity }}
+                    style={{ opacity: text3Opacity, y: text3Y }}
                     className="absolute text-5xl font-bold"
                 >
                     Engineered for Scale
